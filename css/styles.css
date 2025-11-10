@@ -21,6 +21,7 @@
   /* Font sizes */
   --fs-400: 0.9375rem; /* 15px */
   --fs-500: 1.125rem; /* 18px */
+  --fs-600: 2.5rem; /* 40px */
   --fs-700: 3rem; /* 48px */
   --fs-800: 4rem; /* 64px */
   --fs-900: 6.25rem; /* 100px */
@@ -46,6 +47,8 @@
   --spacing-1600: 8rem; /* 128px */
   --spacing-1800: 9rem; /* 144px */
   --spacing-2000: 10rem; /* 160px */
+  --spacing-2500: 12.5rem; /* 200px */
+  --spacing-3000: 16rem; /* 256px */
 }
 
 body {
@@ -400,5 +403,82 @@ ul {
 
   .social__nav ul {
     justify-content: end;
+  }
+}
+
+/***** Hero Styles  *****/
+.hero {
+  text-align: center;
+  background-image: url(../assets/images/bg-pattern-home-2.svg);
+  background-repeat: no-repeat;
+  background-position: bottom center;
+
+  & .text--accent {
+    color: var(--clr-accent-coral);
+  }
+
+  & .page-subtitle {
+    max-inline-size: 35ch;
+    margin-inline: auto;
+  }
+
+  @media (min-width: 64rem) {
+    background-position: bottom right 8rem;
+  }
+
+  @media (min-width: 80rem) {
+    background-image: url(../assets/images/bg-pattern-home-1.svg), url(../assets/images/bg-pattern-home-2.svg);
+    background-repeat: no-repeat;
+    background-position: left -100px top 6rem, bottom right 8rem;
+  }
+}
+
+.hero--layout {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-300);
+  padding-block-end: var(--spacing-2500);
+
+  @media (min-width: 48rem) {
+    padding-block: var(--spacing-1200) var(--spacing-3000);
+
+    & .page-subtitle {
+      max-inline-size: 50ch;
+    }
+  }
+
+  @media (min-width: 64rem) {
+    flex-direction: row;
+    justify-content: space-between;
+
+    & h1 {
+      text-align: left;
+    }
+
+    & .page-subtitle {
+      max-inline-size: 35ch;
+      margin-inline: 0;
+      text-align: left;
+
+      align-self: end;
+      margin-block-end: 0.5rem;
+    }
+  }
+
+  @media (min-width: 80rem) {
+    & h1 {
+      font-size: var(--fs-900);
+    }
+
+    & .page-subtitle::before {
+      content: '';
+      display: block;
+      inline-size: var(--spacing-600);
+      block-size: 4px;
+      background-color: var(--clr-accent-blue);
+      margin-block-end: var(--spacing-600);
+    }
   }
 }

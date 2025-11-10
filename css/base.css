@@ -103,6 +103,11 @@
   }
 }
 
+body {
+  background-color: var(--clr-primary-600);
+  color: var(--clr-neutral-100);
+}
+
 .wrapper {
   inline-size: 100%;
   max-inline-size: 69.375rem; /* ~1110px */
@@ -110,9 +115,15 @@
   padding-inline: 1.5rem; /* Mobile default */
 
   @media (min-width: 40rem) {
-    .wrapper {
-      padding-inline: 2.5rem;
-    }
+    padding-inline: 2.5rem;
+  }
+
+  @media (min-width: 64rem) {
+    padding-inline: 4rem;
+  }
+
+  @media (min-width: 90rem) {
+    padding-inline: 0;
   }
 }
 
@@ -120,4 +131,15 @@ ul {
   list-style: none;
   padding: 0;
   margin: 0;
+}
+
+/********* Typography **********/
+h1 {
+  font-size: var(--fs-600);
+  font-weight: var(--fw-bold);
+  line-height: 1;
+
+  @media (min-width: 37.5rem) {
+    font-size: var(--fs-800);
+  }
 }
