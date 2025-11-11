@@ -21,6 +21,7 @@
   /* Font sizes */
   --fs-400: 0.9375rem; /* 15px */
   --fs-500: 1.125rem; /* 18px */
+  --fs-550: 2rem; /* 32px */
   --fs-600: 2.5rem; /* 40px */
   --fs-700: 3rem; /* 48px */
   --fs-800: 4rem; /* 64px */
@@ -480,5 +481,94 @@ ul {
       background-color: var(--clr-accent-blue);
       margin-block-end: var(--spacing-600);
     }
+  }
+}
+
+/***** Services Styles  *****/
+.services {
+  background-color: var(--clr-primary-800);
+  background-image: url(../assets/images/bg-pattern-home-3.svg);
+  background-repeat: no-repeat;
+  background-position: top right -6rem;
+  padding-block: var(--spacing-800);
+
+  @media (min-width: 48rem) {
+    padding-block: var(--spacing-1200);
+  }
+
+  @media (min-width: 67.5rem) {
+    background-position: bottom right -6rem;
+  }
+}
+
+.services--layout {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-800);
+
+  @media (min-width: 48rem) {
+    /* padding-inline: var(--spacing-600); */
+  }
+
+  @media (min-width: 67.5rem) {
+    flex-direction: row;
+    /* padding-inline: var(--spacing-600); */
+  }
+}
+
+.services--title {
+  max-inline-size: 15rem;
+  margin-inline-start: 0;
+
+  @media (min-width: 48rem) {
+    max-inline-size: 30rem;
+  }
+
+  @media (min-width: 64rem) {
+    max-inline-size: 20rem;
+  }
+}
+
+.services--title::before {
+  content: '';
+  position: absolute;
+  inset: -2rem 0 0 0;
+  inline-size: var(--spacing-600);
+  block-size: 4px;
+  background-color: var(--clr-accent-coral);
+}
+
+.services--features {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: var(--spacing-600);
+
+  @media (min-width: 48rem) {
+    gap: var(--spacing-400);
+  }
+}
+
+.feature {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--spacing-200);
+
+  & h3 {
+    margin-block-end: var(--spacing-100);
+  }
+
+  & .text--accent {
+    color: var(--clr-accent-coral);
+  }
+
+  @media (min-width: 48rem) {
+    flex-direction: row;
+    text-align: left;
+    align-items: flex-start;
+    gap: var(--spacing-300);
   }
 }
