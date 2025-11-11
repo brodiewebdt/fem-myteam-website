@@ -99,6 +99,22 @@ body {
   outline-offset: 4px;
 }
 
+.btn--dark {
+  border: 2px solid var(--clr-primary-800);
+  color: var(--clr-primary-800);
+}
+
+.btn--dark:hover,
+.btn--dark:focus-visible {
+  background-color: var(--clr-primary-800);
+  color: var(--clr-neutral-100);
+}
+
+.btn--dark:focus-visible {
+  outline: 3px solid var(--clr-primary-800);
+  outline-offset: 4px;
+}
+
 ul {
   list-style: none;
   padding: 0;
@@ -660,4 +676,30 @@ blockquote::before {
   display: block;
   left: calc(50% - 40px);
   width: 50px;
+}
+
+/***** CTA Styles  *****/
+.cta {
+  background-color: var(--clr-accent-coral);
+  color: var(--clr-primary-800);
+  padding-block: var(--spacing-1200);
+  text-align: center;
+
+  background-image: url(../assets/images/bg-pattern-home-6-about-5.svg);
+  background-repeat: no-repeat;
+  background-position: bottom -1.5rem left;
+}
+
+.cta--layout {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: var(--spacing-300);
+  padding-inline: var(--spacing-300);
+
+  @media (min-width: 48rem) {
+    flex-direction: row;
+    justify-content: space-between;
+  }
 }
