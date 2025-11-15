@@ -43,3 +43,57 @@ quoteToggleBtns.forEach((button) => {
     card.classList.toggle('show');
   });
 });
+
+// Code to check the error states in the contact form
+const contactForm = document.querySelector('.form--contact');
+
+contactForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+
+  const name = contactForm['name'].value;
+  const email = contactForm['email'].value;
+  const message = contactForm['message'].value;
+
+  console.log(name);
+
+  if (name === '') {
+    addErrorTo('name', 'This field is required');
+  } else {
+    removeErrorFrom('name');
+  }
+
+  if (email === '') {
+    addErrorTo('email', 'Please use a valid email address');
+  } else if (!isValid(email)) {
+    addErrorTo('email', 'Email is not valid');
+  } else {
+    removeErrorFrom('email');
+  }
+
+  if (message === '') {
+    addErrorTo('message', 'This field is required');
+  } else {
+    removeErrorFrom('message');
+  }
+});
+
+function addErrorTo(field, message) {
+  const formGroup = contactForm[field].parentNode;
+  formGroup.classList.add('error');
+
+  const contactFormError = formGroup.querySelector('.error--message');
+  contactFormError.innerText = message;
+}
+
+function removeErrorFrom(field) {
+  const formGroup = contactForm[field].parentNode;
+  formGroup.classList.remove('error');
+
+  const contactFormError = formGroup.querySelector('.error--message');
+  contactFormError.innerText = '';
+}
+
+function isValid(email) {
+  var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  return re.test(String(email).toLowerCase());
+}
