@@ -14,6 +14,7 @@
 
   /* Neutral colors */
   --clr-neutral-100: hsl(0 0% 100%);
+  --clr-overlay: hsl(0 0% 0% / 0.5);
 
   /* Font families */
   --ff-base: 'Livvic', sans-serif;
@@ -141,7 +142,7 @@ ul {
 
 /***** Header Styles  *****/
 .header {
-  background-color: var(--clr-primary-600);
+  background-color: var(--clr-primary-500);
   padding-block: var(--spacing-600);
 }
 
@@ -156,7 +157,7 @@ ul {
 }
 
 .nav__wrapper {
-  @media (min-width: 600px) {
+  @media (min-width: 37.5rem) {
     flex-grow: 1;
   }
 }
@@ -173,7 +174,7 @@ ul {
   z-index: 50;
   position: relative;
 
-  @media (min-width: 600px) {
+  @media (min-width: 37.5rem) {
     display: none;
   }
 }
@@ -196,7 +197,7 @@ ul {
   background-repeat: no-repeat;
   background-position: bottom right -6rem;
 
-  @media (min-width: 600px) {
+  @media (min-width: 37.5rem) {
     background-color: transparent;
     background-image: none;
     display: flex;
@@ -241,7 +242,7 @@ ul {
   flex-direction: column;
   gap: 2rem;
 
-  @media (min-width: 600px) {
+  @media (min-width: 37.5rem) {
     flex-direction: row;
     align-items: center;
     flex-grow: 1;
@@ -250,7 +251,7 @@ ul {
 }
 
 .last--link {
-  @media (min-width: 600px) {
+  @media (min-width: 37.5rem) {
     margin-inline-start: auto;
   }
 }
@@ -260,12 +261,12 @@ ul {
   inset: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: var(--clr-overlay);
   z-index: 10;
   opacity: 0;
   visibility: hidden;
 
-  @media (min-width: 600px) {
+  @media (min-width: 37.5rem) {
     display: none;
   }
 }
@@ -299,6 +300,7 @@ ul {
 
 .footer__logo {
   grid-area: logo;
+  margin-inline: auto;
 }
 
 .footer__nav {
@@ -315,10 +317,6 @@ ul {
 
 .copyright {
   grid-area: copyright;
-}
-
-.footer__logo {
-  margin-inline: auto;
 }
 
 .footer__nav ul {
@@ -353,6 +351,10 @@ ul {
   height: 24px;
   color: var(--clr-neutral-100);
   transition: color 0.3s ease;
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+  }
 }
 
 .social__nav--link:hover .social-icon,
@@ -423,6 +425,7 @@ ul {
 /***** Hero Styles  *****/
 .hero {
   text-align: center;
+  background-color: var(--clr-primary-500);
   background-image: url(../assets/images/bg-pattern-home-2.svg);
   background-repeat: no-repeat;
   background-position: bottom center;
@@ -872,7 +875,7 @@ blockquote::before {
   border: 2px solid hsl(179, 100%, 88%);
   border-radius: 100vw;
   height: 6rem;
-  margin-bottom: 1rem;
+  margin-block-end: 1rem;
   width: 6rem;
 }
 

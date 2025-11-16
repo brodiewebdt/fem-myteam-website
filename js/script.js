@@ -7,12 +7,10 @@ const quote = document.querySelector('.director__card');
 const toggleMenu = () => {
   const isExpanded = navToggle.getAttribute('aria-expanded') === 'true';
 
-  navToggle.setAttribute('aria-expanded', !isExpanded);
+  navToggle.setAttribute('aria-expanded', String(!isExpanded));
 
   mainNav.classList.toggle('open');
   overlay.classList.toggle('active');
-
-  console.log(isExpanded);
 };
 
 const toggleQuote = (e) => {
@@ -50,9 +48,9 @@ const contactForm = document.querySelector('.form--contact');
 contactForm.addEventListener('submit', (e) => {
   e.preventDefault();
 
-  const name = contactForm['name'].value;
-  const email = contactForm['email'].value;
-  const message = contactForm['message'].value;
+  const name = contactForm.elements.name.value;
+  const email = contactForm.elements.email.value;
+  const message = contactForm.elements.message.value;
 
   console.log(name);
 
@@ -94,6 +92,6 @@ function removeErrorFrom(field) {
 }
 
 function isValid(email) {
-  var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-  return re.test(String(email).toLowerCase());
+  let re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return re.test(email);
 }

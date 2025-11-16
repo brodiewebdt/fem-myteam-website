@@ -103,6 +103,14 @@
   }
 }
 
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
+
 body {
   background-color: var(--clr-primary-600);
   color: var(--clr-neutral-100);
