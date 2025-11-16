@@ -13,15 +13,6 @@ const toggleMenu = () => {
   overlay.classList.toggle('active');
 };
 
-const toggleQuote = (e) => {
-  const button = e.currentTarget;
-  const isExpanded = button.getAttribute('aria-expanded') === 'true';
-
-  button.setAttribute('aria-expanded', String(!isExpanded));
-
-  quote.classList.toggle('show');
-};
-
 navToggle.addEventListener('click', toggleMenu);
 
 overlay.addEventListener('click', toggleMenu);
@@ -52,26 +43,34 @@ contactForm.addEventListener('submit', (e) => {
   const email = contactForm.elements.email.value;
   const message = contactForm.elements.message.value;
 
-  console.log(name);
+  let hasErrors = false;
 
   if (name === '') {
     addErrorTo('name', 'This field is required');
+    hasErrors = true;
   } else {
     removeErrorFrom('name');
   }
 
   if (email === '') {
     addErrorTo('email', 'Please use a valid email address');
+    hasErrors = true;
   } else if (!isValid(email)) {
     addErrorTo('email', 'Email is not valid');
+    hasErrors = true;
   } else {
     removeErrorFrom('email');
   }
 
   if (message === '') {
     addErrorTo('message', 'This field is required');
+    hasErrors = true;
   } else {
     removeErrorFrom('message');
+  }
+
+  if (!hasErrors) {
+    contactForm.submit();
   }
 });
 
@@ -92,6 +91,6 @@ function removeErrorFrom(field) {
 }
 
 function isValid(email) {
-  let re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   return re.test(email);
 }
