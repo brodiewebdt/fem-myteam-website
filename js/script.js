@@ -17,7 +17,7 @@ const toggleQuote = (e) => {
   const button = e.currentTarget;
   const isExpanded = button.getAttribute('aria-expanded') === 'true';
 
-  button.setAttribute('aria-expanded', !isExpanded);
+  button.setAttribute('aria-expanded', String(!isExpanded));
 
   quote.classList.toggle('show');
 };
@@ -36,7 +36,7 @@ quoteToggleBtns.forEach((button) => {
   button.addEventListener('click', () => {
     const isExpanded = button.getAttribute('aria-expanded') === 'true';
 
-    button.setAttribute('aria-expanded', !isExpanded);
+    button.setAttribute('aria-expanded', String(!isExpanded));
     const card = button.closest('.director__card');
     card.classList.toggle('show');
   });

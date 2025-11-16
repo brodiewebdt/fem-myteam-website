@@ -661,7 +661,7 @@ ul {
   margin-block-end: var(--spacing-1000);
   max-inline-size: 25ch;
 
-  @media (min-width: 1024px) {
+  @media (min-width: 64rem) {
     max-inline-size: 32ch;
   }
 }
@@ -786,11 +786,11 @@ blockquote::before {
   grid-template-columns: 1fr;
   gap: 4.75rem 1.875rem;
 
-  @media (min-width: 768px) {
+  @media (min-width: 48rem) {
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   }
 
-  @media (min-width: 1440px) {
+  @media (min-width: 90rem) {
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   }
 }
