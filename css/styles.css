@@ -601,7 +601,7 @@ ul {
   }
 
   @media (min-width: 90rem) {
-    max-inline-size: 20rem;
+    max-inline-size: 25rem;
   }
 }
 
