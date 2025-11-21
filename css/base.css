@@ -156,4 +156,8 @@ h2 {
   font-size: var(--fs-550);
   font-weight: var(--fw-bold);
   line-height: 1.1;
+
+  @media (min-width: 90rem) {
+    font-size: var(--fs-700);
+  }
 }

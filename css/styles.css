@@ -566,6 +566,10 @@ ul {
   @media (min-width: 67.5rem) {
     background-position: bottom right -6rem;
   }
+
+  @media (min-width: 48rem) {
+    padding-block: var(--spacing-1800);
+  }
 }
 
 .services--layout {
@@ -593,6 +597,10 @@ ul {
   }
 
   @media (min-width: 64rem) {
+    max-inline-size: 20rem;
+  }
+
+  @media (min-width: 90rem) {
     max-inline-size: 20rem;
   }
 }
